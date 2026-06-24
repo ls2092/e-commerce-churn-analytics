@@ -17,7 +17,7 @@ SELECT * FROM vw_ecommerce_sales;
 
 
 -- no. of distinct orders customers have made = distinct order ids
-CREATE TABLE customer_rfm AS
+CREATE TABLE customer_rfm1 AS
 -- no. of days since customer has made last purchase/last order date
 WITH dataset_max_date AS (
     SELECT MAX(order_purchase_timestamp) AS max_date 
@@ -32,4 +32,4 @@ FROM vw_ecommerce_sales s
 CROSS JOIN dataset_max_date d
 GROUP BY s.customer_unique_id, d.max_date;
 
-SELECT * FROM customer_rfm LIMIT 100;
+SELECT * FROM customer_rfm1;
